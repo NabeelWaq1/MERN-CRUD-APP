@@ -14,6 +14,9 @@ const __dirname = path.resolve();
 
 app.use('/api/products',productRouter)
 
+
+const PORT = process.env.PORT || 5000;
+
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname,"/frontend/dist")));
 
@@ -22,7 +25,6 @@ if(process.env.NODE_ENV === 'production') {
     })
 }
 
-const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     connectDB();
